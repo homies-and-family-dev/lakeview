@@ -4,7 +4,6 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavigationLink from "./NavigationLink";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,22 +45,31 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-[1001] transition-all duration-300 ${
-      isScrolled ? "bg-white shadow-lg" : "bg-transparent"
-    }`}>
+    <header 
+      className={`fixed top-0 left-0 right-0 z-[1001] transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+      }`}
+      role="banner"
+    >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="relative w-40 h-12">
-            <img
+            <Image
               src={isScrolled ? "/logo/logoazul.png" : "/logo/logoblanco.png"}
-              alt="Logo"
-              className="w-full h-full object-contain"
+              alt="Prado Lake View - Logo"
+              fill
+              className="object-contain"
+              priority
             />
           </div>
 
-          {/* Navegación Desktop - Un solo menú */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Navegación Desktop */}
+          <nav 
+            className="hidden md:flex items-center gap-8"
+            role="navigation"
+            aria-label="Navegación principal"
+          >
             {navigationLinks.map((link) => (
               <NavigationLink 
                 key={link.href}
@@ -82,11 +90,13 @@ export default function Header() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-white z-[1002]"
+            aria-expanded={isOpen}
+            aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           >
             {isOpen ? (
-              <X size={32} className="text-white" />
+              <X size={32} className="text-white" aria-hidden="true" />
             ) : (
-              <Menu size={32} className={isScrolled ? "text-[#1B3C59]" : "text-white"} />
+              <Menu size={32} className={isScrolled ? "text-[#1B3C59]" : "text-white"} aria-hidden="true" />
             )}
           </button>
         </div>
