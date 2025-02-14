@@ -60,7 +60,7 @@ export default function Amenities() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <div className="bg-white py-24 md:py-32">
+    <section id="amenidades" className="bg-white py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
           <div className="inline-block bg-blue-50 px-4 py-2 rounded-full mb-4">
@@ -164,6 +164,6 @@ export default function Amenities() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 }

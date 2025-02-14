@@ -121,7 +121,7 @@ function ZoomControl() {
 
 export default function Ubication() {
   return (
-    <div className="bg-blue-50 py-24 md:py-32 px-4 md:px-8">
+    <section id="ubicacion" className="bg-blue-50 py-24 md:py-32 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#1B3C59]">
@@ -148,7 +148,7 @@ export default function Ubication() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 pt-4 md:gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 pt-14 md:gap-12">
           {/* Ajuste del mapa para mobile */}
           <div className="relative h-[400px] md:h-[600px] rounded-xl overflow-hidden shadow-lg">
             <MapContainer
@@ -303,6 +303,6 @@ export default function Ubication() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

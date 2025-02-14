@@ -12,17 +12,19 @@ const Ubication = dynamic(() => import('./home/Ubication'), { ssr: false });
 const FAQs = dynamic(() => import('./home/FAQs'), { ssr: false });
 const Contact = dynamic(() => import('./home/Contact'), { ssr: false });
 const Footer = dynamic(() => import('@/components/layout/footer/Footer'), { ssr: false });
+const Testimonial = dynamic(() => import('./home/Testimonial'), { ssr: false });
 
 export default function Home() {
   return (
     <>
       <Header />
       <Hero />
+      <Ubication />
+      <About />
+      <Testimonial />
       <Tipollogy />
       <Amenities />
       <Alliance />
-      <Ubication />
-      <About />
       <FAQs />
       <Contact />
       <Footer />

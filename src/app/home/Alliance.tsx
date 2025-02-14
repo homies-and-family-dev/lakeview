@@ -54,7 +54,7 @@ export default function Alliance() {
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           {/* Contenido */}
           <div className="lg:w-1/2 space-y-6">
-            <div className="inline-block bg-blue-50 px-4 py-2 rounded-full">
+            <div className="inline-block bg-white px-4 py-2 rounded-full">
               <span className="text-[#1B3C59] font-medium">Respaldo y Experiencia</span>
             </div>
             

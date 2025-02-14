@@ -78,10 +78,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={20} />
-                <Link href="mailto:info@pradolakeview.com" className="text-gray-300 hover:text-white transition-colors">
-                  info@pradolakeview.com
-                </Link>
+                <div>
+                  <Mail size={20} />
+                  <Link href="mailto:info@pradolakeview.com" className="text-gray-300 hover:text-white transition-colors">
+                    soporte@monteazulgroup.com
+                  </Link>
+                </div>
               </li>
             </ul>
           </div>
@@ -115,13 +117,14 @@ export default function Footer() {
         {/* Copyright y enlaces legales */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-300 text-sm">
-            © {new Date().getFullYear()} Prado Lake View. Todos los derechos reservados.
+            © {new Date().getFullYear()} Prado Lake View. Todos los derechos reservados. <br />
+            Desarrollado por <Link href="https://www.wsdigitaldev.com" target="_blank" className="text-gray-300 hover:text-white transition-colors">wsdigitaldev</Link>
           </p>
           <div className="flex gap-6 text-sm">
-            <Link href="/terminos-y-condiciones" className="text-gray-300 hover:text-white transition-colors">
+            <Link target='_blank' href="https://www.monteazulgroup.com/politicas-de-privacidad" className="text-gray-300 hover:text-white transition-colors">
               Términos y Condiciones
             </Link>
-            <Link href="/politica-privacidad" className="text-gray-300 hover:text-white transition-colors">
+            <Link href="https://www.monteazulgroup.com/politicas-de-privacidad" className="text-gray-300 hover:text-white transition-colors">
               Política de Privacidad
             </Link>
           </div>

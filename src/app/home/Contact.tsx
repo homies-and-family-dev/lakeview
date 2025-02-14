@@ -14,20 +14,20 @@ import 'react-phone-input-2/lib/style.css';
 const sedes = [
   {
     ciudad: "Ibagué",
-    direccion: "Calle 60 # 2A-79, C.C. Acqua, Local 105",
-    horario: "Lunes a Sábado: 9:00 AM - 6:00 PM\nDomingos: 10:00 AM - 4:00 PM",
+    direccion: "Carrera 5 Sur No. 83-40 Florida 3 local 8 MonteAzul Group",
+    horario: "Lunes a Sábado: 9:00 AM - 6:00 PM",
     icono: Building2
   },
   {
     ciudad: "Bogotá",
-    direccion: "Calle 100 # 8A-55, Torre C, Oficina 1005",
-    horario: "Lunes a Viernes: 8:00 AM - 5:00 PM\nSábados: 9:00 AM - 1:00 PM",
+    direccion: "Calle 90# 11A - 04 Barrio el Chicó",
+    horario: "Lunes a Viernes: 9:00 AM - 6:00 PM",
     icono: Building2
   },
   {
     ciudad: "Prado",
-    direccion: "Kilómetro 2 vía Prado - Purificación",
-    horario: "Lunes a Domingo: 9:00 AM - 5:00 PM",
+    direccion: "Isla de atención en muelle de la represa de Prado",
+    horario: "Lunes a sábado: 9:00 AM - 6:00 PM",
     icono: MapPin
   }
 ];
@@ -45,8 +45,7 @@ export default function Contact() {
     nombre: "",
     email: "",
     horarioContacto: "",
-    aceptaTerminos: false,
-    recibirInfo: false
+    aceptaTerminos: false
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -56,7 +55,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="bg-white py-24 md:py-32" id="contacto">
+    <section id="contacto" className="bg-white py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
           <div className="inline-block bg-blue-50 px-4 py-2 rounded-full mb-4">
@@ -139,43 +138,33 @@ export default function Contact() {
                 </select>
               </div>
 
-              <div className="space-y-4">
-                <label className="flex items-start gap-3 cursor-pointer group">
-                  <input
-                    type="checkbox"
-                    className="mt-1 text-blue-500 focus:ring-blue-500 rounded"
-                    checked={formData.aceptaTerminos}
-                    onChange={(e) => setFormData({...formData, aceptaTerminos: e.target.checked})}
-                    required
-                  />
-                  <span className="text-sm text-gray-600">
-                    Acepto los{" "}
-                    <Link 
-                      href="/terminos-y-condiciones"
-                      className="text-blue-500 hover:text-blue-700 underline"
-                    >
-                      términos y condiciones
-                    </Link>
-                    {" "}y la política de tratamiento de datos personales
-                  </span>
-                </label>
-
-                <label className="flex items-start gap-3 cursor-pointer group">
-                  <input
-                    type="checkbox"
-                    className="mt-1 text-blue-500 focus:ring-blue-500 rounded"
-                    checked={formData.recibirInfo}
-                    onChange={(e) => setFormData({...formData, recibirInfo: e.target.checked})}
-                  />
-                  <span className="text-sm text-gray-600">
-                    Deseo recibir información sobre el proyecto y novedades
-                  </span>
-                </label>
-              </div>
+              {/* Checkbox simplificado */}
+              <label className="flex items-start gap-4 cursor-pointer group">
+                <input
+                  type="checkbox"
+                  className="mt-1.5 w-5 h-5 text-blue-500 focus:ring-blue-500 rounded border-gray-300 
+                           cursor-pointer transition-all hover:border-blue-500"
+                  checked={formData.aceptaTerminos}
+                  onChange={(e) => setFormData({...formData, aceptaTerminos: e.target.checked})}
+                  required
+                />
+                <span className="text-sm text-gray-600 flex-1">
+                  Acepto los{" "}
+                  <Link 
+                    href="/terminos-y-condiciones"
+                    className="text-blue-500 hover:text-blue-700 underline"
+                  >
+                    términos y condiciones
+                  </Link>
+                  {" "}y autorizo el tratamiento de mis datos personales para recibir información del proyecto.
+                </span>
+              </label>
 
               <button
                 type="submit"
-                className="w-full bg-[#1B3C59] text-white px-8 py-4 rounded-lg hover:bg-[#2A5A85] transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+                className="w-full bg-[#1B3C59] text-white px-8 py-4 rounded-lg hover:bg-[#2A5A85] 
+                         transition-all shadow-lg hover:shadow-xl flex items-center justify-center 
+                         gap-2 group mt-8"
               >
                 Solicitar información
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -215,6 +204,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

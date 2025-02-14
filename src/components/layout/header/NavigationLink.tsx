@@ -1,44 +1,47 @@
 import Link from "next/link";
 
-export default function NavigationLinks() {
+interface NavigationLinkProps {
+  href: string;
+  children: React.ReactNode;
+  isScrolled: boolean;
+  isContact?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+}
+
+export default function NavigationLink({ href, children, isScrolled, isContact, onClick }: NavigationLinkProps) {
+  if (isContact) {
+    return (
+      <a
+        href={href}
+        onClick={onClick}
+        className={`
+          px-6 py-2.5 rounded-full font-semibold transition-all duration-300
+          shadow-md hover:shadow-lg hover:scale-105
+          ${isScrolled 
+            ? 'bg-[#1B3C59] text-white hover:bg-[#2A5A85] border-2 border-[#1B3C59]' 
+            : 'bg-white text-[#1B3C59] hover:bg-blue-50 border-2 border-white hover:border-blue-100'
+          }
+          animate-pulse hover:animate-none
+        `}
+      >
+        ¡Contáctanos!
+      </a>
+    );
+  }
 
   return (
-    <>
-      <Link
-        href="/#testimonios"
-        className="text-white"
-        aria-label="Ir a la sección de testimonios"
-      >
-        Testimonios
-      </Link>
-      <Link
-        href="/#imagenes"
-        className="text-white"
-        aria-label="Ir a la sección de imágenes"
-      >
-        Imágenes
-      </Link>
-      <Link
-        href="/#financiacion"
-        className="text-white"
-        aria-label="Ir a la sección de financiación"
-      >
-        Financiación
-      </Link>
-      <Link
-        href="/#tipologias"
-        className="text-white"
-        aria-label="Ir a la sección de tipologías"
-      >
-        Tipologías
-      </Link>
-      <Link
-        href="/#contacto"
-        className="text-zinc-800 border-2 border-[#ffffff] rounded-full px-6 py-1.5 font-semibold bg-white hover:border-white"
-        aria-label="Ir a la sección de contacto"
-      >
-        Contacto
-      </Link>
-    </>
+    <a
+      href={href}
+      onClick={onClick}
+      className={`
+        transition-colors duration-300
+        ${isScrolled 
+          ? 'text-[#1B3C59] hover:text-blue-600' 
+          : 'text-white hover:text-blue-200'
+        }
+      `}
+    >
+      {children}
+    </a>
   );
 }

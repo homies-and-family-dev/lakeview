@@ -75,10 +75,10 @@ export default function Tipollogy() {
   };
 
   return (
-    <div className="bg-blue-50 py-24 md:py-32">
+    <section id="tipologias" className="bg-blue-50 py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block bg-blue-50 px-4 py-2 rounded-full mb-4">
+          <div className="inline-block bg-white px-4 py-2 rounded-full mb-4">
             <span className="text-[#1B3C59] font-medium">Diseños Exclusivos</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1B3C59] mb-4">
@@ -257,6 +257,6 @@ export default function Tipollogy() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

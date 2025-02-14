@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <section id="inicio" className="relative w-full h-screen overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
         <motion.div
           className="relative w-full h-full"
@@ -89,6 +89,6 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }

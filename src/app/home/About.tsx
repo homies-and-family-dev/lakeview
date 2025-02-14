@@ -6,7 +6,7 @@ import { Check, ArrowRight, CalendarRange } from 'lucide-react';
 
 export default function About() {
   return (
-    <div className="bg-white py-24 md:py-32">
+    <section id="nosotros" className="bg-white py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           {/* Contenido */}
@@ -68,7 +68,7 @@ export default function About() {
             {/* Primera imagen */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[300px]">
               <Image 
-                src="/torreslakeview.png" 
+                src="/torres.png" 
                 alt="Apartamentos con vista a la represa" 
                 width={500} 
                 height={300}
@@ -99,6 +99,6 @@ export default function About() {
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
