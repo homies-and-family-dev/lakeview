@@ -22,12 +22,25 @@ export default function Footer() {
               diseñado para quienes buscan un estilo de vida único.
             </p>
             <div className="flex gap-4">
-              <Link href="https://facebook.com" target="_blank" className="hover:text-blue-400 transition-colors">
-                <Facebook size={24} />
-              </Link>
-              <Link href="https://instagram.com" target="_blank" className="hover:text-blue-400 transition-colors">
-                <Instagram size={24} />
-              </Link>
+              <a 
+                href="https://facebook.com" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-400 transition-colors"
+                aria-label="Síguenos en Facebook"
+              >
+                <Facebook size={24} aria-hidden="true" />
+              </a>
+
+              <a 
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="hover:text-blue-400 transition-colors"
+                aria-label="Síguenos en Instagram"
+              >
+                <Instagram size={24} aria-hidden="true" />
+              </a>
               <Link href="https://youtube.com" target="_blank" className="hover:text-blue-400 transition-colors">
                 <Youtube size={24} />
               </Link>

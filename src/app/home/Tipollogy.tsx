@@ -176,18 +176,20 @@ export default function Tipollogy() {
           {/* Botones de navegación reposicionados */}
           <div className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-4 right-0 md:-right-4 flex justify-between pointer-events-none px-2 md:px-8">
             <button
+              className="p-2 md:p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-all"
               onClick={prevSlide}
-              className="p-2 md:p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-all pointer-events-auto"
-              aria-label="Anterior tipología"
+              disabled={currentIndex === 0}
+              aria-label="Ver tipología anterior"
             >
-              <ArrowLeft className="text-[#1B3C59]" size={24} />
+              <ArrowLeft size={24} aria-hidden="true" />
             </button>
             <button
+              className="p-2 md:p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-all"
               onClick={nextSlide}
-              className="p-2 md:p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-all pointer-events-auto"
-              aria-label="Siguiente tipología"
+              disabled={currentIndex === tipologias.length - 1}
+              aria-label="Ver siguiente tipología"
             >
-              <ArrowRight className="text-[#1B3C59]" size={24} />
+              <ArrowRight size={24} aria-hidden="true" />
             </button>
           </div>
         </div>

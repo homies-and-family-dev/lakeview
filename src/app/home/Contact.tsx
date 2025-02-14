@@ -32,13 +32,6 @@ const sedes = [
   }
 ];
 
-const horarios = [
-  "8:00 AM - 10:00 AM",
-  "10:00 AM - 12:00 PM",
-  "2:00 PM - 4:00 PM",
-  "4:00 PM - 6:00 PM"
-];
-
 export default function Contact() {
   const [phone, setPhone] = useState("");
   const [formData, setFormData] = useState({
@@ -121,20 +114,24 @@ export default function Contact() {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Horario de contacto preferido
+              <div className="form-group">
+                <label 
+                  htmlFor="horario"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Horario de visita
                 </label>
                 <select
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  value={formData.horarioContacto}
-                  onChange={(e) => setFormData({...formData, horarioContacto: e.target.value})}
+                  id="horario"
+                  name="horario"
                   required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
+                  aria-label="Selecciona un horario de visita"
                 >
                   <option value="">Selecciona un horario</option>
-                  {horarios.map((horario) => (
-                    <option key={horario} value={horario}>{horario}</option>
-                  ))}
+                  <option value="8-10">8:00 AM - 10:00 AM</option>
+                  <option value="10-12">10:00 AM - 12:00 PM</option>
+                  <option value="2-4">2:00 PM - 4:00 PM</option>
                 </select>
               </div>
 
