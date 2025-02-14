@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import NavigationLink from "./NavigationLink";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -55,14 +57,19 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="relative w-40 h-12">
-            <Image
-              src={isScrolled ? "/logo/logoazul.png" : "/logo/logoblanco.png"}
-              alt="Prado Lake View - Logo"
-              fill
-              className="object-contain cursor-pointer"
-              priority
+            <button 
               onClick={() => router.push("/")}
-            />
+              className="w-full h-full"
+              aria-label="Ir a inicio"
+            >
+              <Image
+                src={isScrolled ? "/logo/logoazul.png" : "/logo/logoblanco.png"}
+                alt="Prado Lake View - Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </button>
           </div>
 
           {/* Navegación Desktop */}
@@ -81,6 +88,7 @@ export default function Header() {
                   e.preventDefault();
                   handleLinkClick(link.href);
                 }}
+                aria-label={`Ir a sección ${link.label}`}
               >
                 {link.label}
               </NavigationLink>
@@ -90,14 +98,18 @@ export default function Header() {
           {/* Botón Mobile */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white z-[1002]"
+            className="md:hidden p-2 text-white z-[1002] min-w-[48px] min-h-[48px]"
             aria-expanded={isOpen}
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           >
             {isOpen ? (
               <X size={32} className="text-white" aria-hidden="true" />
             ) : (
-              <Menu size={32} className={isScrolled ? "text-[#1B3C59]" : "text-white"} aria-hidden="true" />
+              <Menu 
+                size={32} 
+                className={isScrolled ? "text-[#1B3C59]" : "text-white"} 
+                aria-hidden="true" 
+              />
             )}
           </button>
         </div>
@@ -110,41 +122,29 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-[#1B3C59] z-[1001]"
+            className="fixed inset-0 bg-[#1B3C59] z-[1000] md:hidden"
           >
-            <div className="flex flex-col items-center justify-center h-full">
-              <motion.nav
-                initial="closed"
-                animate="open"
-                variants={{
-                  closed: { opacity: 0 },
-                  open: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.1
-                    }
-                  }
-                }}
-                className="flex flex-col items-center gap-8"
-              >
-                {navigationLinks.map((link) => (
-                  <motion.div
-                    key={link.href}
-                    variants={{
-                      closed: { opacity: 0, y: 20 },
-                      open: { opacity: 1, y: 0 }
-                    }}
-                  >
-                    <button
-                      onClick={() => handleLinkClick(link.href)}
-                      className="text-white text-2xl font-medium hover:text-blue-300 transition-colors"
-                    >
-                      {link.label}
-                    </button>
-                  </motion.div>
-                ))}
-              </motion.nav>
-            </div>
+            <nav 
+              className="flex flex-col items-center justify-center h-full gap-8"
+              role="navigation"
+              aria-label="Menú móvil"
+            >
+              {navigationLinks.map((link) => (
+                <NavigationLink
+                  key={link.href}
+                  href={link.href}
+                  isScrolled={false}
+                  isContact={link.href === "/#contacto"}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick(link.href);
+                  }}
+                  aria-label={`Ir a sección ${link.label}`}
+                >
+                  {link.label}
+                </NavigationLink>
+              ))}
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
