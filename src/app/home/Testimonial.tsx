@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { MapPin, Quote } from "lucide-react";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const testimonios = [
   {
@@ -72,13 +72,14 @@ export default function Testimonial() {
               className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group"
             >
               <div className="relative w-full h-80 overflow-hidden">
-                <Image
+                <OptimizedImage
                   src={testimonio.foto}
                   alt={`Experiencia de visita en Prado Lake View - ${testimonio.ubicacion}`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  priority={index < 3}
+                  priority={index < 2}
+                  loading={index < 2 ? "eager" : "lazy"}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               </div>

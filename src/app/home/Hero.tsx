@@ -2,46 +2,26 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import dynamic from 'next/dynamic';
+
+// Cargar el video de forma dinámica
+const VideoBackground = dynamic(() => import('./VideoBackground'), {
+  ssr: false,
+  loading: () => (
+    <div className="absolute inset-0 bg-[#1B3C59] animate-pulse" />
+  ),
+});
 
 export default function Hero() {
   return (
     <section id="inicio" className="relative w-full h-screen overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full">
-        <motion.div
-          className="relative w-full h-full"
-        >
-          <motion.video
-            src="/video/videolakeview.mp4"
-            autoPlay
-            loop
-            muted
-            className="absolute top-0 left-0 w-full h-full object-cover"
-          />
-          <div
-            className="absolute top-0 left-0 w-full h-full"
-            style={{
-              background: `
-                linear-gradient(to bottom, 
-                  rgba(0,0,0,0.2) 0%, 
-                  rgba(0,0,0,0.3) 50%,
-                  rgba(0,0,0,0.4) 100%
-                ),
-                radial-gradient(circle at center, 
-                  rgba(0,0,0,0.1) 0%, 
-                  rgba(0,0,0,0.2) 100%
-                )
-              `,
-              mixBlendMode: "multiply",
-            }}
-          ></div>
-        </motion.div>
-      </div>
+      <VideoBackground />
 
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.8 }}
           className="relative flex flex-col items-center text-center text-white max-w-5xl"
         >
           <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-8">

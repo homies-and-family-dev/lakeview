@@ -1,9 +1,9 @@
 "use client";
 import { useState, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Building2, Trophy, Clock, ChevronLeft, ChevronRight } from "lucide-react";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const proyectos = [
   { nombre: "Alta Gracia", imagen: "/pomar/altagracia.jpg" },
@@ -126,12 +126,14 @@ export default function Alliance() {
                         className="w-[85vw] md:w-[600px] flex-shrink-0 snap-center px-2"
                       >
                         <div className="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                          <Image
+                          <OptimizedImage
                             src={proyecto.imagen}
                             alt={proyecto.nombre}
                             fill
-                            priority
+                            sizes="(max-width: 768px) 85vw, 600px"
                             className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            loading="lazy"
+                            quality={75}
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                           <div className="absolute bottom-0 left-0 right-0 p-8">

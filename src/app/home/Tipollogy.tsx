@@ -1,9 +1,9 @@
 "use client";
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Check, Maximize2, BedDouble, X, Plus, ChevronRight } from 'lucide-react';
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const tipologias = [
   {
@@ -100,16 +100,16 @@ export default function Tipollogy() {
           >
             {/* Imagen - Ajustada para mobile y tablet */}
             <div className="w-full lg:w-1/2 relative">
-              <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] rounded-xl overflow-hidden">
-                <Image
+              <div className="relative w-full h-80 overflow-hidden">
+                <OptimizedImage
                   src={tipologias[currentIndex].imagen}
                   alt={tipologias[currentIndex].nombre}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 50vw"
-                  className="object-cover"
-                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500"
+                  priority={currentIndex === 0}
+                  quality={75}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
             </div>
 

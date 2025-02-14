@@ -4,11 +4,11 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import NavigationLink from "./NavigationLink";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -59,8 +59,9 @@ export default function Header() {
               src={isScrolled ? "/logo/logoazul.png" : "/logo/logoblanco.png"}
               alt="Prado Lake View - Logo"
               fill
-              className="object-contain"
+              className="object-contain cursor-pointer"
               priority
+              onClick={() => router.push("/")}
             />
           </div>
 
