@@ -173,10 +173,28 @@ export default function Tipollogy() {
             </div>
           </motion.div>
 
-          {/* Botones de navegación reposicionados */}
+          {/* Navegación de puntos mejorada */}
+          <div className="flex justify-center gap-4 mt-8">
+            {tipologias.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-12 h-12 rounded-full transition-all flex items-center justify-center
+                  ${currentIndex === index ? 'bg-[#1B3C59]' : 'bg-gray-300 hover:bg-gray-400'}`}
+                aria-label={`Ver tipología ${index + 1}`}
+                aria-current={currentIndex === index ? 'true' : 'false'}
+              >
+                <span className={`text-sm font-medium ${currentIndex === index ? 'text-white' : 'text-gray-700'}`}>
+                  {index + 1}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Botones de navegación laterales */}
           <div className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-4 right-0 md:-right-4 flex justify-between pointer-events-none px-2 md:px-8">
             <button
-              className="p-2 md:p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-all"
+              className="p-4 md:p-6 rounded-full bg-white/90 shadow-lg hover:bg-white transition-all pointer-events-auto"
               onClick={prevSlide}
               disabled={currentIndex === 0}
               aria-label="Ver tipología anterior"
@@ -184,7 +202,7 @@ export default function Tipollogy() {
               <ArrowLeft size={24} aria-hidden="true" />
             </button>
             <button
-              className="p-2 md:p-3 rounded-full bg-white/90 shadow-lg hover:bg-white transition-all"
+              className="p-4 md:p-6 rounded-full bg-white/90 shadow-lg hover:bg-white transition-all pointer-events-auto"
               onClick={nextSlide}
               disabled={currentIndex === tipologias.length - 1}
               aria-label="Ver siguiente tipología"
@@ -244,20 +262,6 @@ export default function Tipollogy() {
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Indicadores */}
-        <div className="flex justify-center gap-2 mt-8">
-          {tipologias.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                index === currentIndex ? 'bg-[#1B3C59] w-6' : 'bg-gray-300'
-              }`}
-              aria-label={`Ir a tipología ${index + 1}`}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );

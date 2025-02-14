@@ -56,55 +56,58 @@ export default function Testimonial() {
           </p>
         </div>
 
-        <div 
+        <ul 
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          role="list"
           aria-label="Lista de testimonios"
         >
           {testimonios.map((testimonio, index) => (
-            <motion.article
+            <li
               key={index}
-              role="listitem"
-              aria-label={`Testimonio de visitante desde ${testimonio.ubicacion}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group"
+              className="list-none"
             >
-              <div className="relative w-full h-80 overflow-hidden">
-                <OptimizedImage
-                  src={testimonio.foto}
-                  alt={`Experiencia de visita en Prado Lake View - ${testimonio.ubicacion}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  priority={index < 2}
-                  loading={index < 2 ? "eager" : "lazy"}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              </div>
-              
-              <div className="p-6 relative">
-                <Quote 
-                  className="absolute -top-10 left-6 text-white w-12 h-12 opacity-70" 
-                  aria-hidden="true"
-                />
-                
-                <blockquote className="relative z-10 mb-4">
-                  <p className="text-gray-600 italic">
-                    {testimonio.texto}
-                  </p>
-                </blockquote>
+              <motion.article
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group"
+              >
+                <figure>
+                  <div className="relative w-full h-80 overflow-hidden">
+                    <OptimizedImage
+                      src={testimonio.foto}
+                      alt={`Foto del visitante desde ${testimonio.ubicacion}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      priority={index < 2}
+                      loading={index < 2 ? "eager" : "lazy"}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  </div>
+                  
+                  <figcaption className="p-6 relative">
+                    <Quote 
+                      className="absolute -top-10 left-6 text-white w-12 h-12 opacity-70" 
+                      aria-hidden="true"
+                    />
+                    
+                    <blockquote className="relative z-10 mb-4">
+                      <p className="text-gray-600 italic">
+                        {testimonio.texto}
+                      </p>
+                    </blockquote>
 
-                <div className="flex items-center gap-2 text-sm text-gray-500 mt-4 pt-4 border-t border-gray-100">
-                  <MapPin size={16} className="text-blue-400" aria-hidden="true" />
-                  <span>{testimonio.ubicacion}</span>
-                </div>
-              </div>
-            </motion.article>
+                    <div className="flex items-center gap-2 text-sm text-gray-500 mt-4 pt-4 border-t border-gray-100">
+                      <MapPin size={16} className="text-blue-400" aria-hidden="true" />
+                      <span>{testimonio.ubicacion}</span>
+                    </div>
+                  </figcaption>
+                </figure>
+              </motion.article>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <motion.div 
           className="text-center mt-16"

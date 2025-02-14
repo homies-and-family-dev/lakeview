@@ -82,21 +82,21 @@ export default function Location() {
         {/* Marcadores de ciudades */}
         <Marker 
           position={[4.6097, -74.0817]} 
-          icon={new L.Icon({...cityIcon, iconUrl: '/map/bogota.jpg'})}
+          icon={new L.Icon({...cityIcon, iconUrl: '/map/bogota.jpg', ariaLabel: 'Bogotá - 4 horas'})}
         >
           <Popup>Bogotá - 4 horas</Popup>
         </Marker>
 
         <Marker 
           position={[4.4389, -75.2322]} 
-          icon={new L.Icon({...cityIcon, iconUrl: '/map/ibague.jpg'})}
+          icon={new L.Icon({...cityIcon, iconUrl: '/map/ibague.jpg', ariaLabel: 'Ibagué - 2 horas'})}
         >
           <Popup>Ibagué - 2 horas</Popup>
         </Marker>
 
         <Marker 
           position={[2.9273, -75.2819]} 
-          icon={new L.Icon({...cityIcon, iconUrl: '/map/neiva.jpg'})}
+          icon={new L.Icon({...cityIcon, iconUrl: '/map/neiva.jpg', ariaLabel: 'Neiva - 1.5 horas'})}
         >
           <Popup>Neiva - 1.5 horas</Popup>
         </Marker>
