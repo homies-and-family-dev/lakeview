@@ -8,58 +8,58 @@ import OptimizedImage from "@/components/ui/OptimizedImage";
 const tipologias = [
   {
     id: 1,
-    nombre: "Apartamento Tipo A",
-    area: "30.77m²",
+    nombre: "Tipología 1",
+    area: "23.97m²",
     habitaciones: "1",
-    descripcion: "Perfecto para una persona o pareja que busca un apartamento cómodo y funcional.",
-    caracteristicas: ["Cocina integrada", "Baño completo", "Zona de lavado", "Balcón con vista a la represa"],
+    descripcion: "Apartasuite de una alcoba, ideal para inversión o primera vivienda. Diseñado con terraza para maximizar las vistas a la represa.",
+    caracteristicas: ["Cocina integrada", "Baño completo", "Zona de lavado", "Terraza con vista", "Ventilación cruzada"],
     imagen: "/tipologias/tipologia1.jpg"
   },
-    {
-      id: 2,
-      nombre: "Apartamento Tipo B",
-      area: "38.49m²",
-      habitaciones: "1",
-      descripcion: "Ideal para una persona o pareja que busca un apartamento cómodo y funcional con comedor",
-      caracteristicas: ["Cocina integrada", "Baño completo", "Zona de lavado", "Balcón con vista a la represa", "comedor"],
-      imagen: "/tipologias/tipologia2.jpg"
-    },
-    {
-      id: 3,
-      nombre: "Apartamento Tipo C",
-      area: "69.26m²",
-      habitaciones: "4",
-      descripcion: "Diseño moderno con acabados premium, perfecto para una pareja o una persona que busca un apartamento con sala de estar, comedor, cocina, baño y dormitorio",
-      caracteristicas: ["Zona de estudio", "Balcón con vista a la represa", "sala de estar", "comedor", "cocina", "baño", "dormitorio", "zona de lavado"],
-      imagen: "/tipologias/tipologia3.jpg"
-    },
-    {
-      id: 4,
-      nombre: "Apartamento Tipo D",
-      area: "138.57m²",
-      habitaciones: "3",
-      descripcion: "Zona premium para familias grandes, con 3 dormitorios, 3 baños, cocina, comedor, sala de estar, zona de lavado y balcón con vista a la represa",
-      caracteristicas: ["Zona de estudio", "Balcón francés", "sala de estar", "comedor", "cocina", "baño", "dormitorio", "zona de lavado"],
-      imagen: "/tipologias/tipologia4.jpg"
-    },
-    {
-      id: 5,
-      nombre: "Apartamento Tipo C",
-      area: "68.37m²",
-      habitaciones: "2",
-      descripcion: "Ideal para una pareja que busca un apartamento con 2 dormitorios, 2 baños, cocina, comedor, zona de lavado y balcón con vista a la represa",
-      caracteristicas: ["Zona de estudio", "Balcón con vista a la represa", "comedor", "cocina", "baño", "dormitorio", "zona de lavado"],
-      imagen: "/tipologias/tipologia5.jpg"
-    },
-    {
-      id: 6,
-      nombre: "Apartamento Tipo 3B",
-      area: "95.71m²",
-      habitaciones: "2",
-      descripcion: "Perfecto para una familia que busca un apartamento con 2 dormitorios, 2 baños, cocina, comedor, zona de lavado y balcón con vista a la represa",
-      caracteristicas: ["Cocina", "Baño", "Zona de lavado", "Balcón con vista a la represa", "comedor", "dormitorio", "zona de lavado"],
-      imagen: "/tipologias/tipologia6.jpg"
-    }
+  {
+    id: 2,
+    nombre: "Tipología 2A",
+    area: "48.46m²",
+    habitaciones: "2",
+    descripcion: "Apartamento de dos alcobas con diseño optimizado y terraza. Perfecto para parejas o pequeñas familias.",
+    caracteristicas: ["Dos alcobas", "Cocina integrada", "Baño completo", "Zona de lavado", "Terraza panorámica"],
+    imagen: "/tipologias/tipologia2.jpg"
+  },
+  {
+    id: 3,
+    nombre: "Tipología 2B",
+    area: "72.43m²",
+    habitaciones: "2",
+    descripcion: "Amplio apartamento de dos alcobas con espacios generosos y terraza. Ideal para quienes buscan más espacio.",
+    caracteristicas: ["Dos alcobas amplias", "Cocina integrada", "Baño completo", "Zona de lavado", "Terraza con vista premium"],
+    imagen: "/tipologias/tipologia3.jpg"
+  },
+  {
+    id: 4,
+    nombre: "Tipología 3",
+    area: "138.57m²",
+    habitaciones: "3",
+    descripcion: "Exclusivo apartamento de tres habitaciones ubicado en los últimos niveles. Incluye terraza de 41.60m².",
+    caracteristicas: ["Tres habitaciones", "Área interna: 96.93m²", "Terraza: 41.60m²", "Vista panorámica premium", "Ubicación privilegiada"],
+    imagen: "/tipologias/tipologia4.jpg"
+  },
+  {
+    id: 5,
+    nombre: "Apartamento Tipo C",
+    area: "68.37m²",
+    habitaciones: "2",
+    descripcion: "Ideal para una pareja que busca un apartamento con 2 dormitorios, 2 baños, cocina, comedor, zona de lavado y balcón con vista a la represa",
+    caracteristicas: ["Zona de estudio", "Balcón con vista a la represa", "comedor", "cocina", "baño", "dormitorio", "zona de lavado"],
+    imagen: "/tipologias/tipologia5.jpg"
+  },
+  {
+    id: 6,
+    nombre: "Apartamento Tipo 3B",
+    area: "95.71m²",
+    habitaciones: "2",
+    descripcion: "Perfecto para una familia que busca un apartamento con 2 dormitorios, 2 baños, cocina, comedor, zona de lavado y balcón con vista a la represa",
+    caracteristicas: ["Cocina", "Baño", "Zona de lavado", "Balcón con vista a la represa", "comedor", "dormitorio", "zona de lavado"],
+    imagen: "/tipologias/tipologia6.jpg"
+  }
 ];
 
 export default function Tipollogy() {

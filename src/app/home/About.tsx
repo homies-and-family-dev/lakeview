@@ -32,12 +32,12 @@ export default function About() {
 
             <ul className="space-y-4">
               {[
-                'Amplios ventanales con vista panorámica',
-                'Diseño arquitectónico moderno y elegante',
-                'Espacios optimizados y funcionales',
-                'Acabados premium seleccionados',
-                'Sistema de seguridad 24/7',
-                'Zonas comunes con vista a la represa'
+                'Disposición escalonada para vistas panorámicas',
+                'Diseño que respeta la vegetación circundante',
+                'Ventilación cruzada y luz natural optimizada',
+                'Acceso directo a muelles exclusivos',
+                'Diseño bioclimático y sostenible',
+                'Integración perfecta con el entorno natural'
               ].map((feature, index) => (
                 <li key={index} className="flex items-center gap-3">
                   <Check className="text-green-500 flex-shrink-0" size={20} />
