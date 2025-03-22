@@ -43,7 +43,7 @@ const amenidades = [
     icono: Users
   },
   {
-    titulo: "Sala de Juntas",
+    titulo: "Business center",
     descripcion: "Espacio profesional para reuniones y trabajo remoto",
     imagen: "/amenidades/saladejuntas.jpg",
     icono: Users
