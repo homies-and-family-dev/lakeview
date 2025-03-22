@@ -40,11 +40,46 @@ export default function Contact() {
     horarioContacto: "",
     aceptaTerminos: false
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el formulario
-    console.log({ ...formData, phone });
+    setIsSubmitting(true);
+
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log("Form data submitted:", { ...formData, phone });
+
+      const response = await fetch('/api/submitform', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, phone }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error submitting form');
+      }
+
+      setSubmitSuccess(true);
+
+      setTimeout(() => {
+        setFormData({
+          nombre: "",
+          email: "",
+          horarioContacto: "",
+          aceptaTerminos: false
+        });
+        setPhone("");
+        setSubmitSuccess(false);
+      }, 3000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -162,10 +197,14 @@ export default function Contact() {
                 className="w-full bg-[#1B3C59] text-white px-8 py-4 rounded-lg hover:bg-[#2A5A85] 
                          transition-all shadow-lg hover:shadow-xl flex items-center justify-center 
                          gap-2 group mt-8"
+                disabled={isSubmitting}
               >
-                Solicitar información
+                {isSubmitting ? 'Enviando...' : 'Solicitar información'}
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" />
               </button>
+              {submitSuccess && (
+                <p className="text-green-500 text-center mt-4">Datos enviados correctamente</p>
+              )}
             </form>
           </motion.div>
 
